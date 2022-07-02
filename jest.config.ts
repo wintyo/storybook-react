@@ -4,7 +4,7 @@ const config: Config.InitialOptions = {
   verbose: true,
   rootDir: './',
   moduleNameMapper: {
-    '\\.(mdx)$': 'jest-transform-stub',
+    '\\.(mdx)$': '@storybook/addon-docs/jest-transform-mdx',
     '\\.(css|styl|sass|scss)$': 'jest-transform-stub',
   },
   transform: {
