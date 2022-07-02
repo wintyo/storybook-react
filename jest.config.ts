@@ -12,10 +12,8 @@ const config: Config.InitialOptions = {
     '^.+\\.(ts|tsx)': 'ts-jest',
   },
   testMatch: ['**/*.test.[jt]s'],
-  preset: 'ts-jest/presets/js-with-ts',
   globals: {
     'ts-jest': {
-      useESM: true,
       tsconfig: 'tsconfig.json',
     },
   },
