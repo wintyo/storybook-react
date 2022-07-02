@@ -35,6 +35,9 @@ jobs:
       - name: node version
         run: node -v
 
+      - name: Install Font
+        run: sudo apt install -y fonts-ipafont
+
       - name: Install
         run: yarn install
 
