@@ -4,7 +4,10 @@ on:
   - push:
     branches:
       - main
-  - pull_request
+  - pull_request:
+    types:
+      - opened
+      - synchronize
 
 jobs:
   chromatic-deployment:
