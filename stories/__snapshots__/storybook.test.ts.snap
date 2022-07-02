@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Example/Counter Base 1`] = `
+<div
+  className="counter"
+>
+  <button
+    data-testid="minus"
+    onClick={[Function]}
+  >
+    -
+  </button>
+  <div
+    className="counter__count"
+  >
+    0
+  </div>
+  <button
+    data-testid="plus"
+    onClick={[Function]}
+  >
+    +
+  </button>
+</div>
+`;
+
+exports[`Storyshots Example/Counter Local 1`] = `
+<div
+  className="counter"
+>
+  <button
+    data-testid="minus"
+    onClick={[Function]}
+  >
+    -
+  </button>
+  <div
+    className="counter__count"
+  >
+    0
+  </div>
+  <button
+    data-testid="plus"
+    onClick={[Function]}
+  >
+    +
+  </button>
+</div>
+`;
