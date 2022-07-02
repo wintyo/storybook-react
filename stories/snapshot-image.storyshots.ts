@@ -9,5 +9,10 @@ initStoryshots({
     storybookUrl: isStatic
       ? `file:${path.resolve(__dirname, '../storybook-static')}`
       : 'http://localhost:6006/',
+    getMatchOptions: () => ({
+      // CI側のbrowser renderと差が出てしまうので比較的大きめに値を取る
+      failureThreshold: 0.5,
+      failureThresholdType: 'percent',
+    }),
   }),
 });

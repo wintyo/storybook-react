@@ -2,3 +2,4 @@ node_modules
 .cache
 storybook-static
 .DS_Store
+__diff_output__
