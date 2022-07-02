@@ -34,14 +34,13 @@ jobs:
         id: fc
         with:
           issue-number: ${{ github.event.pull_request.number }}
-          comment-author: github-user-id
           body-includes: ':books: Storybook :books:'
 
       - name: Get datetime for now
         id: datetime
         run: echo "::set-output name=value::$(date)"
         env:
-          TZ: Asiz/Tokyo
+          TZ: Asia/Tokyo
 
       - name: Create or update comment
         uses: peter-evans/create-or-update-comment@v2
