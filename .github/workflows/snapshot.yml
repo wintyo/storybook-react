@@ -43,3 +43,10 @@ jobs:
 
       - name: Snapshot Image
         run: yarn snapshot-image:static
+
+      - name: Output diff
+        uses: actions/upload-artifact@v2
+        if: failure()
+        with:
+          name: diff-output
+          path: ./stories/__image_snapshots__/__diff_output__
