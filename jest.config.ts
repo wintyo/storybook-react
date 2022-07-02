@@ -2,6 +2,7 @@ import type { Config } from '@jest/types';
 
 const config: Config.InitialOptions = {
   verbose: true,
+  rootDir: './',
   moduleNameMapper: {
     '\\.(mdx)$': 'jest-transform-stub',
     '\\.(css|styl|sass|scss)$': 'jest-transform-stub',
