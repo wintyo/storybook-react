@@ -10,9 +10,19 @@ export type Props = {
 export const Counter: FC<Props> = (props) => {
   return (
     <div className="counter">
-      <button onClick={() => props.onChange(props.count - 1)}>-</button>
+      <button
+        data-testid="minus"
+        onClick={() => props.onChange(props.count - 1)}
+      >
+        -
+      </button>
       <div className="counter__count">{props.count}</div>
-      <button onClick={() => props.onChange(props.count + 1)}>+</button>
+      <button
+        data-testid="plus"
+        onClick={() => props.onChange(props.count + 1)}
+      >
+        +
+      </button>
     </div>
   );
 };

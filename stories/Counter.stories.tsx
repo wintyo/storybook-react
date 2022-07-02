@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { within, userEvent } from '@storybook/testing-library';
 
 import { Counter } from './Counter';
 
@@ -31,3 +32,14 @@ const LocalTemplate: ComponentStory<typeof Counter> = (args) => {
 };
 
 export const Local = LocalTemplate.bind({});
+Local.play = async ({ canvasElement }) => {
+  const canvas = within(canvasElement);
+
+  const elMinusButton = await canvas.getByTestId('minus');
+  const elPlusButton = await canvas.getByTestId('plus');
+
+  await userEvent.click(elPlusButton);
+  await userEvent.click(elPlusButton);
+  await userEvent.click(elPlusButton);
+  await userEvent.click(elMinusButton);
+};

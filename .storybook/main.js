@@ -9,6 +9,9 @@ module.exports = {
     '@storybook/addon-interactions',
   ],
   framework: '@storybook/react',
+  features: {
+    interactionsDebugger: true,
+  },
   typescript: {
     check: true,
     reactDocgen: 'react-docgen-typescript',
