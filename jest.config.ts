@@ -7,6 +7,7 @@ const config: Config.InitialOptions = {
     '\\.(css|styl|sass|scss)$': 'jest-transform-stub',
   },
   transform: {
+    '^.+\\.(js)': 'babel-jest',
     '^.+\\.(ts|tsx)': 'ts-jest',
   },
   testMatch: ['**/*.test.[jt]s'],
