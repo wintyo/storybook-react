@@ -1,7 +1,9 @@
 name: 'Chromatic'
 
 on:
-  - push
+  - push:
+    branches:
+      - main
   - pull_request
 
 jobs:
@@ -23,8 +25,10 @@ jobs:
         with:
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
 
+      # 以降はPRの時の処理
       # 不要なパスを削除
       - name: Remove unnecessary path for Chromatic link
+        if: ${{ github.event.pull_request.number }}
         id: storybook-url
         run: echo "::set-output name=value::${STORYBOOK_URL//\/iframe.html/}"
         env:
@@ -32,19 +36,22 @@ jobs:
 
       # コメントを作成する
       - name: Find Comment
+        if: ${{ github.event.pull_request.number }}
         uses: peter-evans/find-comment@v2
         id: fc
         with:
           issue-number: ${{ github.event.pull_request.number }}
-          body-includes: ':books: Storybook :books:'
+          body-includes: ':books: **Storybook** :books:'
 
       - name: Get datetime for now
+        if: ${{ github.event.pull_request.number }}
         id: datetime
         run: echo "::set-output name=value::$(date)"
         env:
           TZ: Asia/Tokyo
 
       - name: Create or update comment
+        if: ${{ github.event.pull_request.number }}
         uses: peter-evans/create-or-update-comment@v2
         with:
           comment-id: ${{ steps.fc.outputs.comment-id }}
