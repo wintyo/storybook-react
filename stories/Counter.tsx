@@ -21,7 +21,7 @@ export const Counter: FC<Props> = (props) => {
         data-testid="plus"
         onClick={() => props.onChange(props.count + 1)}
       >
-        +++
+        +
       </button>
     </div>
   );
