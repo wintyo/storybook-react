@@ -1,10 +1,6 @@
 name: 'Chromatic'
 
-on:
-  push:
-    branches:
-      - main
-  pull_request:
+on: push
 
 jobs:
   chromatic-deployment:
@@ -25,41 +21,3 @@ jobs:
         with:
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
           exitZeroOnChanges: false
-
-      # 以降はPRの時の処理
-      # 不要なパスを削除
-      - name: Remove unnecessary path for Chromatic link
-        if: failure() && ${{ github.event.pull_request.number }}
-        id: storybook-url
-        run: echo "::set-output name=value::${STORYBOOK_URL//\/iframe.html/}"
-        env:
-          STORYBOOK_URL: ${{ steps.chromatic.outputs.storybookUrl }}
-
-      # コメントを作成する
-      - name: Find Comment
-        if: failure() && ${{ github.event.pull_request.number }}
-        uses: peter-evans/find-comment@v2
-        id: fc
-        with:
-          issue-number: ${{ github.event.pull_request.number }}
-          body-includes: ':books: **Storybook** :books:'
-
-      - name: Get datetime for now
-        if: failure() && ${{ github.event.pull_request.number }}
-        id: datetime
-        run: echo "::set-output name=value::$(date)"
-        env:
-          TZ: Asia/Tokyo
-
-      - name: Create or update comment
-        if: failure() && ${{ github.event.pull_request.number }}
-        uses: peter-evans/create-or-update-comment@v2
-        with:
-          comment-id: ${{ steps.fc.outputs.comment-id }}
-          issue-number: ${{ github.event.pull_request.number }}
-          body: |
-            Detect Visual Changes! Visit the :books: **Storybook** :books: for this PR (updated for commit ${{ github.event.pull_request.head.sha }}):
-            <${{ steps.chromatic.outputs.buildUrl }}>
-            <sub>Storybook URL: ${{ steps.storybook-url.outputs.value }}</sub>
-            <sub>(:fire: updated at ${{ steps.datetime.outputs.value }})</sub>
-          edit-mode: replace
