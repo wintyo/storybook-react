@@ -48,7 +48,5 @@
   },
   "resolutions": {
     "react-test-renderer": "^18.2.0"
-  },
-  "readme": "ERROR: No README data found!",
-  "_id": "storybook-react@1.0.0"
+  }
 }
