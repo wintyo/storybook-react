@@ -29,24 +29,18 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
-        with:
-          node-version: '16.15.1'
 
-      - name: node version
-        run: node -v
-
-      - name: Install Font
-        run: sudo apt install -y fonts-ipafont
+      - name: Docker build
+        run: docker-compose build
 
       - name: Install
-        run: yarn install
+        run: docker-compose run node yarn install
 
       - name: Storybook Build
-        run: yarn storybook:build
+        run: docker-compose run node yarn storybook:build
 
       - name: Snapshot Image
-        run: yarn snapshot-image:static
+        run: docker-compose run node /bin/bash ./docker-scripts/snapshot-image-static.sh
 
       - name: Output diff
         uses: actions/upload-artifact@v2
