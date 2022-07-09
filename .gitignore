@@ -5,3 +5,4 @@ storybook-static
 .DS_Store
 __diff_output__
 build-storybook.log
+storybook-url.js
