@@ -46,7 +46,7 @@ jobs:
         run: yarn storybook:build
 
       - name: Snapshot Image
-        run: /bin/bash ./docker-scripts/snapshot-image-static.sh
+        run: yarn snapshot-image:static
 
       - name: Output diff
         uses: actions/upload-artifact@v2
