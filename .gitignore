@@ -1,6 +1,8 @@
 node_modules
 .cache
 storybook-static
+.bash_history
 .DS_Store
 __diff_output__
 build-storybook.log
+storybook-url.js

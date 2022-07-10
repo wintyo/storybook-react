@@ -6,8 +6,8 @@
   "scripts": {
     "test": "jest",
     "snapshot": "jest --config ./jest.config.snapshot.ts",
-    "snapshot-image": "jest --config ./jest.config.snapshot-image.ts",
-    "snapshot-image:static": "STORYBOOK=static jest --config ./jest.config.snapshot-image.ts",
+    "snapshot-image": "docker-compose run node /bin/bash ./docker-scripts/snapshot-image.sh",
+    "snapshot-image:static": "docker-compose run node /bin/bash ./docker-scripts/snapshot-image-static.sh",
     "storybook": "start-storybook -p 6006",
     "storybook:build": "build-storybook"
   },
