@@ -1,7 +1,7 @@
 {
   "name": "storybook-react",
   "version": "1.0.0",
-  "description": "",
+  "description": "storybook for react",
   "main": "index.js",
   "scripts": {
     "test": "jest",
@@ -12,8 +12,8 @@
     "storybook:build": "build-storybook"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "wintyo <wintyo1024@gmail.com>",
+  "license": "MIT",
   "dependencies": {
     "normalize.css": "^8.0.1",
     "react": "^18.2.0",
